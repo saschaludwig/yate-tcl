@@ -884,11 +884,11 @@ proc ::ygi::_de_numberfiles {number {language "de"}} {
 		if {$tens == 0 && $rem == 1} {
 			## x01 style number
 			lappend res 1
-		} elseif {$number <= 20} {
+		} elseif {$number <= 20 && $number > 0} {
 			lappend res $number
 		} elseif {$rem} {
 			lappend res [_de_map_eins_ein $rem] und $tens
-		} else {
+		} elseif {$tens} {
 			lappend res $tens
 		}
 
